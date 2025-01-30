@@ -15,13 +15,29 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.nutrak.R
 import com.example.nutrak.ui.theme.splashEndColor
 import com.example.nutrak.ui.theme.splashStartColor
+import com.example.nutrak.ui.viewmodels.NextScreen
+import com.example.nutrak.ui.viewmodels.SplashViewModel
 
 @Composable
 fun SplashScreen(
+    viewModel: SplashViewModel,
     navigateToIntro: () -> Unit,
     navigateToLogin: () -> Unit,
     navigateToDashboard: () -> Unit,
 ) {
+    SplashScreen()
+
+    viewModel.delayAndNavigateToNextScreen { nextScreen ->
+        when (nextScreen) {
+            NextScreen.INTRO_SCREEN -> navigateToIntro()
+            NextScreen.LOGIN_SCREEN -> navigateToLogin()
+            NextScreen.DASHBOARD_SCREEN -> navigateToDashboard()
+        }
+    }
+}
+
+@Composable
+fun SplashScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -42,9 +58,5 @@ fun SplashScreen(
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen(
-        navigateToIntro = { },
-        navigateToLogin = { },
-        navigateToDashboard = { },
-    )
+    SplashScreen()
 }
