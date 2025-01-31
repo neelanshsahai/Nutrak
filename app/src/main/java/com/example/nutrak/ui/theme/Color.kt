@@ -12,3 +12,27 @@ val Pink40 = Color(0xFF7D5260)
 
 val splashStartColor = Color(0xFFC17B14)
 val splashEndColor = Color(0xFF0F3A0B)
+
+val backgroundColorWhite = Color(0xFFFFFFFF)
+val backgroundColorDark = Color(0xFF141414)
+
+val introBackgroundRadialGradientStartLight = Color(0x0A0C101F)
+val introBackgroundRadialGradientMidLight = Color(0x330C101F)
+val introBackgroundRadialGradientEndLight = Color(0xFF0C101F)
+
+val introBackgroundLinearGradientStartLight = Color(0x0A0C101F)
+val introBackgroundLinearGradientMidLight = Color(0x24FFFFFF)
+val introBackgroundLinearGradientEndLight = Color(0xFFFFFFFF)
+
+val introBackgroundRadialGradientStartDark = Color(0x00141414)
+val introBackgroundRadialGradientMidDark = Color(0x33141414)
+val introBackgroundRadialGradientEndDark = Color(0xFF141414)
+
+val introBackgroundLinearGradientStartDark = Color(0x0A141414)
+val introBackgroundLinearGradientMidDark = Color(0x24141414)
+val introBackgroundLinearGradientEndDark = Color(0xFF141414)
+
+val paginationActiveLight = Color(0xFF141414)
+val paginationInactiveLight = Color(0xFFEDEDED)
+val paginationActiveDark = Color(0xFFFFA726)
+val paginationInactiveDark = Color(0xFF4C4C4C)

@@ -28,7 +28,9 @@ fun AppNavGraph(
         }
 
         composable(route = AppScreens.IntroScreen.name) {
-            IntroScreen()
+            IntroScreen(
+                navigateToLogin = { navController.navigate(AppScreens.LoginScreen.name) }
+            )
         }
 
         composable(route = AppScreens.LoginScreen.name) {

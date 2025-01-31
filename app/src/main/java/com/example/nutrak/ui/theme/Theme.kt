@@ -1,58 +1,53 @@
 package com.example.nutrak.ui.theme
 
-import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val LightColorScheme = NutrakColorScheme(
+    background = backgroundColorWhite,
+    onBackground = backgroundColorDark,
+    introRadialStart = introBackgroundRadialGradientStartLight,
+    introRadialMid = introBackgroundRadialGradientMidLight,
+    introRadialEnd = introBackgroundRadialGradientEndLight,
+    introLinearStart = introBackgroundLinearGradientStartLight,
+    introLinearMid = introBackgroundLinearGradientMidLight,
+    introLinearEnd = introBackgroundLinearGradientEndLight,
+    paginationActive = paginationActiveLight,
+    paginationInactive = paginationInactiveLight,
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val DarkColorScheme = NutrakColorScheme(
+    background = backgroundColorDark,
+    onBackground = backgroundColorWhite,
+    introRadialStart = introBackgroundRadialGradientStartDark,
+    introRadialMid = introBackgroundRadialGradientMidDark,
+    introRadialEnd = introBackgroundRadialGradientEndDark,
+    introLinearStart = introBackgroundLinearGradientStartDark,
+    introLinearMid = introBackgroundLinearGradientMidDark,
+    introLinearEnd = introBackgroundLinearGradientEndDark,
+    paginationActive = paginationActiveDark,
+    paginationInactive = paginationInactiveDark,
 )
 
 @Composable
 fun NutrakTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    val colorScheme = if (darkTheme) {
+        DarkColorScheme
+    } else {
+        LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
+    CompositionLocalProvider(
+        LocalAppColorScheme provides colorScheme,
+        content = content,
     )
+}
+
+object AppTheme {
+    val colorScheme: NutrakColorScheme
+        @Composable get() = LocalAppColorScheme.current
 }
