@@ -60,6 +60,7 @@ dependencies {
     ksp(libs.google.hilt.compiler)
     ksp(libs.androidx.hilt.compiler)
     implementation(libs.androidx.datastore.preferences.core)
+    implementation(libs.compose.material.iconsExtended)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

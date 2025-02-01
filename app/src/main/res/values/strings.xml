@@ -1,16 +1,13 @@
 <resources>
     <string name="app_name">Nutrak</string>
     <string name="splash_logo">App Logo on Splash Screen</string>
-    <string name="intro_screen">INTRO_SCREEN</string>
-    <string name="login_screen">LOGIN_SCREEN</string>
-    <string name="sign_up_screen">SIGN_UP_SCREEN</string>
-    <string name="verify_email_screen">VERIFY_EMAIL_SCREEN</string>
-    <string name="personal_details_screen">PERSONAL_DETAILS_SCREEN</string>
-    <string name="dashboard_screen">DASHBOARD_SCREEN</string>
-    <string name="camera_scan_screen">CAMERA_SCAN_SCREEN</string>
-    <string name="scan_progress_screen">SCAN_PROGRESS_SCREEN</string>
-    <string name="scan_results_screen">SCAN_RESULTS_SCREEN</string>
-    <string name="streaks_screen">STREAKS_SCREEN</string>
-    <string name="splash_screen">SPLASH_SCREEN</string>
     <string name="intro_pager_background">intro pager background</string>
+    <string name="login_background">Login Background</string>
+    <string name="scan_preview">Scan Preview</string>
+    <string name="login_button_logo">Login Button Logo</string>
+    <string name="back_arrow">back arrow</string>
+    <string name="hamburger_menu">Hamburger Menu</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="user_profile">User Profile</string>
+    <string name="toggle_password_visibility">toggle password visibility</string>
 </resources>

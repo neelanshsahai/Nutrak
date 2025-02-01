@@ -10,6 +10,8 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
+val buttonColor = Color(0xFFFFA726)
+
 val splashStartColor = Color(0xFFC17B14)
 val splashEndColor = Color(0xFF0F3A0B)
 
@@ -36,3 +38,11 @@ val paginationActiveLight = Color(0xFF141414)
 val paginationInactiveLight = Color(0xFFEDEDED)
 val paginationActiveDark = Color(0xFFFFA726)
 val paginationInactiveDark = Color(0xFF4C4C4C)
+
+val iconButtonBorderLight = Color(0xFFC7C7C7)
+val iconButtonBorderDark = Color(0xFF3A3A3A)
+
+val dividerLight = Color(0xFFF6F6F6)
+val dividerDark = Color(0xFF1D1D1D)
+val dividerTextLight = Color(0xFF7B7B7B)
+val dividerTextDark = Color(0xFF989898)

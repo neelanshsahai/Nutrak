@@ -15,9 +15,13 @@ data class NutrakColorScheme(
     val introLinearStart: Color,
     val introLinearMid: Color,
     val introLinearEnd: Color,
-
     val paginationActive: Color,
     val paginationInactive: Color,
+
+    // Login Screen Colors
+    val iconButtonBorder: Color,
+    val divider: Color,
+    val dividerText: Color,
 )
 
 val LocalAppColorScheme = staticCompositionLocalOf {
@@ -32,5 +36,8 @@ val LocalAppColorScheme = staticCompositionLocalOf {
         introLinearEnd = Color.Unspecified,
         paginationActive = Color.Unspecified,
         paginationInactive = Color.Unspecified,
+        iconButtonBorder = Color.Unspecified,
+        divider = Color.Unspecified,
+        dividerText = Color.Unspecified,
     )
 }

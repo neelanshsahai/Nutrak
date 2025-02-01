@@ -15,6 +15,9 @@ private val LightColorScheme = NutrakColorScheme(
     introLinearEnd = introBackgroundLinearGradientEndLight,
     paginationActive = paginationActiveLight,
     paginationInactive = paginationInactiveLight,
+    iconButtonBorder = iconButtonBorderLight,
+    divider = dividerLight,
+    dividerText = dividerTextLight,
 )
 
 private val DarkColorScheme = NutrakColorScheme(
@@ -28,6 +31,9 @@ private val DarkColorScheme = NutrakColorScheme(
     introLinearEnd = introBackgroundLinearGradientEndDark,
     paginationActive = paginationActiveDark,
     paginationInactive = paginationInactiveDark,
+    iconButtonBorder = iconButtonBorderDark,
+    divider = dividerDark,
+    dividerText = dividerTextDark,
 )
 
 @Composable

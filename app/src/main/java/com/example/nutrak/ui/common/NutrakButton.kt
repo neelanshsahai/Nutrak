@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.nutrak.ui.theme.AppTheme
 import com.example.nutrak.ui.theme.NutrakTheme
+import com.example.nutrak.ui.theme.buttonColor
 
 @Composable
 fun NutrakButton(
@@ -39,7 +40,7 @@ fun NutrakButton(
             )
         } else {
             ButtonColors(
-                containerColor = Color(0xFFFFA726) ,
+                containerColor = buttonColor,
                 contentColor = Color.Black,
                 disabledContainerColor = Color.Unspecified,
                 disabledContentColor = Color.Unspecified
