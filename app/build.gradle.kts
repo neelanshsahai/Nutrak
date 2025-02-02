@@ -61,6 +61,7 @@ dependencies {
     ksp(libs.androidx.hilt.compiler)
     implementation(libs.androidx.datastore.preferences.core)
     implementation(libs.compose.material.iconsExtended)
+    implementation(libs.numberpicker)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

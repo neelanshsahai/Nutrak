@@ -1,5 +1,6 @@
 package com.example.nutrak.ui.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -26,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -38,12 +41,41 @@ import com.example.nutrak.ui.common.NutrakButton
 import com.example.nutrak.ui.common.NutrakToolbar
 import com.example.nutrak.ui.theme.AppTheme
 import com.example.nutrak.ui.theme.NutrakTheme
-import com.example.nutrak.ui.theme.buttonColor
+import com.example.nutrak.ui.theme.primaryColor
+import com.example.nutrak.ui.viewmodels.AuthUiState
+import com.example.nutrak.ui.viewmodels.AuthenticationViewModel
 
 @Composable
 fun LoginScreen(
+    viewModel: AuthenticationViewModel,
     navigateToSignUp: () -> Unit,
-    navigateToPassword: (String) -> Unit
+    navigateToPassword: (String) -> Unit,
+) {
+    val uiState = viewModel.uiState.collectAsState().value
+    val context = LocalContext.current
+
+    LoginScreen(
+        signInWithGoogle = viewModel::signInWithGoogle,
+        signInWithApple = viewModel::signInWithApple,
+        navigateToSignUp = navigateToSignUp,
+        navigateToPassword = navigateToPassword,
+        validateEmail = viewModel::isEmailValid,
+        showErrorToast = { msg ->
+            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+        },
+        uiState = uiState,
+    )
+}
+
+@Composable
+fun LoginScreen(
+    signInWithGoogle: () -> Unit,
+    signInWithApple: () -> Unit,
+    navigateToSignUp: () -> Unit,
+    navigateToPassword: (String) -> Unit,
+    validateEmail: (String) -> Boolean,
+    showErrorToast: (String) -> Unit,
+    uiState: AuthUiState,
 ) {
     var email by remember { mutableStateOf("") }
     val verticalGradient = Brush.verticalGradient(
@@ -96,7 +128,7 @@ fun LoginScreen(
 
             Row(modifier = Modifier.fillMaxWidth()) {
                 ButtonWithLogo(
-                    onClick = { },
+                    onClick = { signInWithGoogle() },
                     buttonText = "Google",
                     buttonLogo = painterResource(R.drawable.google),
                     modifier = Modifier.weight(1f)
@@ -105,7 +137,7 @@ fun LoginScreen(
                 Spacer(modifier = Modifier.width(16.dp))
 
                 ButtonWithLogo(
-                    onClick = { },
+                    onClick = { signInWithApple() },
                     buttonText = "Apple",
                     buttonLogo = painterResource(R.drawable.apple),
                     modifier = Modifier.weight(1f),
@@ -146,7 +178,13 @@ fun LoginScreen(
             )
 
             NutrakButton(
-                onClick = { navigateToPassword(email) },
+                onClick = {
+                    if (validateEmail(email)) {
+                        navigateToPassword(email)
+                    } else {
+                        showErrorToast("PLease enter an Email Id")
+                    }
+                },
                 buttonText = "Continue",
                 modifier = Modifier.fillMaxWidth()
             )
@@ -162,7 +200,7 @@ fun LoginScreen(
 
                 Text(
                     text = " Sign Up",
-                    color = buttonColor,
+                    color = primaryColor,
                     modifier = Modifier.clickable {
                         navigateToSignUp()
                     }
@@ -179,8 +217,13 @@ fun LoginScreen(
 fun LoginScreenPreview() {
     NutrakTheme {
         LoginScreen(
+            signInWithApple = { },
+            signInWithGoogle = { },
             navigateToSignUp = { },
             navigateToPassword = { },
+            validateEmail = { false },
+            showErrorToast = { },
+            uiState = AuthUiState()
         )
     }
 }

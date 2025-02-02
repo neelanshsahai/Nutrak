@@ -10,4 +10,16 @@
     <string name="search_icon">Search Icon</string>
     <string name="user_profile">User Profile</string>
     <string name="toggle_password_visibility">toggle password visibility</string>
+    <string name="create_account_person_logo">Create Account Person Logo</string>
+    <string name="verify_your_email">Verify your email</string>
+    <string name="welcome_screen_logo">Welcome Screen Logo</string>
+    <string name="welcome_text">Hey! I am your personal Nutritionist powered by Flex AI, I will ask you some questions to give you a personalize a smart diet plan.</string>
+    <string name="gender_page_logo">Gender Page Logo</string>
+    <string name="gender_logo">Gender Logo</string>
+    <string name="what_is_your_height">What is your height</string>
+    <string name="height_image">Height Image</string>
+    <string name="what_is_your_age">What is your age</string>
+    <string name="what_is_your_goal">What is your goal?</string>
+    <string name="goal_logo">Goal Logo</string>
+    <string name="preference_page_logo">Preference Page Logo</string>
 </resources>

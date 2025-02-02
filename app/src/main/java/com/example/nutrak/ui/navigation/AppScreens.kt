@@ -7,6 +7,7 @@ enum class AppScreens {
     PasswordScreen,
     SignUpScreen,
     VerifyEmailScreen,
+    WelcomeScreen,
     PersonalDetailsScreen,
     DashboardScreen,
     CameraScanScreen,

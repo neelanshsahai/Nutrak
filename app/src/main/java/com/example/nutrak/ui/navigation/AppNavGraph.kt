@@ -9,7 +9,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.nutrak.ui.screens.IntroScreen
 import com.example.nutrak.ui.screens.LoginScreen
 import com.example.nutrak.ui.screens.PasswordScreen
+import com.example.nutrak.ui.screens.PersonalDetailsScreen
+import com.example.nutrak.ui.screens.SignUpScreen
 import com.example.nutrak.ui.screens.SplashScreen
+import com.example.nutrak.ui.screens.VerifyEmailScreen
+import com.example.nutrak.ui.screens.WelcomeScreen
 
 @Composable
 fun AppNavGraph(
@@ -37,6 +41,7 @@ fun AppNavGraph(
 
         composable(route = AppScreens.LoginScreen.name) {
             LoginScreen(
+                viewModel = hiltViewModel(),
                 navigateToSignUp = { navController.navigate(AppScreens.SignUpScreen.name) },
                 navigateToPassword = { emailId ->
                     navController.navigate(AppScreens.PasswordScreen.name + "/$emailId")
@@ -47,6 +52,7 @@ fun AppNavGraph(
         composable(route = AppScreens.PasswordScreen.name + "/{emailId}") {
             val email = it.arguments?.getString("emailId") ?: ""
             PasswordScreen(
+                viewModel = hiltViewModel(),
                 emailId = email,
                 navigateToSignUp = { navController.navigate(AppScreens.SignUpScreen.name) },
                 navigateToDashboard = { navController.navigate(AppScreens.DashboardScreen.name) }
@@ -54,7 +60,35 @@ fun AppNavGraph(
         }
 
         composable(route = AppScreens.SignUpScreen.name) {
+            SignUpScreen(
+                viewModel = hiltViewModel(),
+                navigateToSignInScreen = { navController.navigate(AppScreens.LoginScreen.name) },
+                navigateToVerifyScreen = { emailId ->
+                    navController.navigate(AppScreens.VerifyEmailScreen.name + "/$emailId")
+                }
+            )
+        }
 
+        composable(route = AppScreens.VerifyEmailScreen.name + "/{emailId}") {
+            val email = it.arguments?.getString("emailId") ?: ""
+            VerifyEmailScreen(
+                emailId = email,
+                viewModel = hiltViewModel(),
+                navigateToWelcomeScreen = { navController.navigate(AppScreens.WelcomeScreen.name) }
+            )
+        }
+
+        composable(route = AppScreens.WelcomeScreen.name) {
+            WelcomeScreen(
+                navigateToPersonalDetails = { navController.navigate(AppScreens.PersonalDetailsScreen.name) }
+            )
+        }
+
+        composable(route = AppScreens.PersonalDetailsScreen.name) {
+            PersonalDetailsScreen(
+                viewModel = hiltViewModel(),
+                navigateToDashboard = { navController.navigate(AppScreens.DashboardScreen.name) }
+            )
         }
 
         composable(route = AppScreens.DashboardScreen.name) {

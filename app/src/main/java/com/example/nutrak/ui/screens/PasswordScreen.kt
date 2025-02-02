@@ -1,5 +1,6 @@
 package com.example.nutrak.ui.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,6 +24,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -45,13 +48,42 @@ import com.example.nutrak.ui.common.NutrakButton
 import com.example.nutrak.ui.common.NutrakToolbar
 import com.example.nutrak.ui.theme.AppTheme
 import com.example.nutrak.ui.theme.NutrakTheme
-import com.example.nutrak.ui.theme.buttonColor
+import com.example.nutrak.ui.theme.primaryColor
+import com.example.nutrak.ui.viewmodels.AuthUiState
+import com.example.nutrak.ui.viewmodels.AuthenticationViewModel
+
+@Composable
+fun PasswordScreen(
+    viewModel: AuthenticationViewModel,
+    emailId: String,
+    navigateToSignUp: () -> Unit,
+    navigateToDashboard: () -> Unit,
+) {
+    val uiState = viewModel.uiState.collectAsState().value
+    val context = LocalContext.current
+
+    PasswordScreen(
+        emailId = emailId,
+        navigateToDashboard = navigateToDashboard,
+        navigateToSignUp = navigateToSignUp,
+        isPasswordValid = viewModel::isPasswordValid,
+        login = viewModel::login,
+        showErrorToast = { msg ->
+            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+        },
+        uiState = uiState,
+    )
+}
 
 @Composable
 fun PasswordScreen(
     emailId: String,
     navigateToDashboard: () -> Unit,
     navigateToSignUp: () -> Unit,
+    isPasswordValid: (String) -> Boolean,
+    login: () -> Unit,
+    showErrorToast: (String) -> Unit,
+    uiState: AuthUiState,
 ) {
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
@@ -140,7 +172,13 @@ fun PasswordScreen(
         Spacer(modifier = Modifier.weight(1f))
 
         NutrakButton(
-            onClick = { navigateToDashboard() },
+            onClick = {
+                if (isPasswordValid(password)) {
+                    login()
+                } else {
+                    showErrorToast("Please enter a password")
+                }
+            },
             buttonText = "Sign In",
             modifier = Modifier.fillMaxWidth()
         )
@@ -156,12 +194,22 @@ fun PasswordScreen(
 
             Text(
                 text = " Sign Up",
-                color = buttonColor,
+                color = primaryColor,
                 modifier = Modifier.clickable {
                     navigateToSignUp()
                 }
             )
         }
+    }
+
+//    if (uiState.isLoading) {
+//        Show Loader
+//    }
+
+    if (uiState.isAuthSuccessful) {
+        navigateToDashboard()
+    } else if (uiState.errorMessage.isNotBlank()) {
+        showErrorToast(uiState.errorMessage)
     }
 
     NutrakToolbar(isShowBack = true)
@@ -175,6 +223,10 @@ fun PasswordScreenPreview() {
             emailId = "abc@xyz.com",
             navigateToDashboard = { },
             navigateToSignUp = { },
+            isPasswordValid = { false },
+            uiState = AuthUiState(),
+            showErrorToast = { },
+            login = { },
         )
     }
 }
