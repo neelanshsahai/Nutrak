@@ -1,4 +1,5 @@
 [versions]
+accompanistPermissions = "0.37.0"
 agp = "8.2.2"
 datastorePreferences = "1.1.2"
 hiltAndroid = "2.51"
@@ -14,8 +15,10 @@ navigationCompose = "2.7.7"
 ksp = "1.9.0-1.0.13"
 hiltNavigationCompose = "1.2.0"
 numberpicker = "1.0.3"
+camera = "1.4.1"
 
 [libraries]
+accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanistPermissions" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-datastore-preferences-core = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastorePreferences" }
 
@@ -41,6 +44,10 @@ hilt-android-plugin = { group = "com.google.dagger", name = "hilt-android-gradle
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltNavigationCompose" }
 compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
 numberpicker = { group = "com.chargemap.compose", name = "numberpicker", version.ref = "numberpicker" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camera" }
+androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera" }
+androidx-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camera" }
+androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camera" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

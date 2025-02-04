@@ -22,12 +22,13 @@ import com.example.nutrak.ui.theme.NutrakTheme
 
 @Composable
 fun NutrakToolbar(
+    modifier: Modifier = Modifier,
     isShowBack: Boolean = false,
     isShowHamburger: Boolean = false,
     isShowSearch: Boolean = false,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
             .background(Color.Transparent)

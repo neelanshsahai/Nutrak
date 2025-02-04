@@ -12,6 +12,7 @@ val Pink40 = Color(0xFF7D5260)
 
 val primaryColor = Color(0xFFFFA726)
 val secondaryColor = Color(0xFF66BB6A)
+val tertiaryColor = Color(0xFF6DA0FF)
 
 val splashStartColor = Color(0xFFC17B14)
 val splashEndColor = Color(0xFF0F3A0B)
@@ -47,3 +48,7 @@ val dividerLight = Color(0xFFF6F6F6)
 val dividerDark = Color(0xFF1D1D1D)
 val dividerTextLight = Color(0xFF7B7B7B)
 val dividerTextDark = Color(0xFF989898)
+
+val greenShadow = Color(0xFFC2E4C4)
+val yellowShadow = Color(0xFFFFDCA8)
+val yellowGreenShadow = Color(0xFFE0E0B6)

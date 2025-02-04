@@ -3,9 +3,12 @@ package com.example.nutrak.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -61,7 +64,7 @@ fun WelcomeScreen(
         NutrakButton(
             onClick = { navigateToPersonalDetails() },
             buttonText = "Continue",
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.navigationBars)
         )
     }
 }

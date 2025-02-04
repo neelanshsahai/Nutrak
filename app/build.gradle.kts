@@ -62,6 +62,11 @@ dependencies {
     implementation(libs.androidx.datastore.preferences.core)
     implementation(libs.compose.material.iconsExtended)
     implementation(libs.numberpicker)
+    implementation(libs.accompanist.permissions)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera2)
+    implementation(libs.androidx.camera.core)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.nutrak.ui.screens.DashboardScreen
 import com.example.nutrak.ui.screens.IntroScreen
 import com.example.nutrak.ui.screens.LoginScreen
 import com.example.nutrak.ui.screens.PasswordScreen
@@ -92,7 +93,9 @@ fun AppNavGraph(
         }
 
         composable(route = AppScreens.DashboardScreen.name) {
-
+            DashboardScreen(
+                viewModel = hiltViewModel()
+            )
         }
     }
 }

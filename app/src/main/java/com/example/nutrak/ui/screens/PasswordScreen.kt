@@ -9,9 +9,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -184,7 +188,7 @@ fun PasswordScreen(
         )
 
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.navigationBars),
             horizontalArrangement = Arrangement.Center,
         ) {
             Text(
@@ -212,7 +216,7 @@ fun PasswordScreen(
         showErrorToast(uiState.errorMessage)
     }
 
-    NutrakToolbar(isShowBack = true)
+    NutrakToolbar(isShowBack = true, modifier = Modifier.windowInsetsPadding(WindowInsets.systemBars))
 }
 
 @Preview(showBackground = true)

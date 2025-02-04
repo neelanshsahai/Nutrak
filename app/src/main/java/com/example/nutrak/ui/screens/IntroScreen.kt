@@ -9,12 +9,17 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -93,7 +98,8 @@ fun IntroScreen(
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier
-                    .padding(32.dp)
+                    .padding(horizontal = 16.dp)
+                    .windowInsetsPadding(WindowInsets.systemBars)
                     .align(Alignment.TopEnd)
                     .clickable { navigateToLogin() }
             )
@@ -128,7 +134,7 @@ fun IntroScreen(
             Spacer(modifier = Modifier.weight(1f))
 
             Row(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
+                modifier = Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.navigationBars),
             ) {
                 if (pagerState.currentPage != 0) {
                     NutrakButton(
@@ -197,7 +203,7 @@ private fun HorizontalPagerIndicator(
     }
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun IntroScreenPreview() {
     NutrakTheme {

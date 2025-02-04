@@ -6,10 +6,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
@@ -86,7 +90,8 @@ fun SignUpScreen(
     Column(
         modifier = Modifier
             .padding(top = 56.dp, start = 16.dp, end = 16.dp, bottom = 32.dp)
-            .fillMaxSize(),
+            .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.systemBars),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
@@ -197,7 +202,7 @@ fun SignUpScreen(
         )
 
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.navigationBars),
             horizontalArrangement = Arrangement.Center,
         ) {
             Text(
@@ -215,6 +220,8 @@ fun SignUpScreen(
         }
     }
 
+    NutrakToolbar(isShowBack = true, modifier = Modifier.windowInsetsPadding(WindowInsets.systemBars))
+
 //    if (uiState.isLoading) {
         // Show Loader
 //    }
@@ -226,8 +233,6 @@ fun SignUpScreen(
             showErrorToast(uiState.errorMessage)
         }
     }
-
-    NutrakToolbar(isShowBack = true)
 }
 
 @Preview(showBackground = true)
