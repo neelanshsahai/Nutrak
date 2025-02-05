@@ -68,7 +68,10 @@ fun HeightPage(
                 textStyle = TextStyle(color = AppTheme.colorScheme.onBackground)
             )
 
-            Text(text = "ft")
+            Text(
+                text = "ft",
+                color = AppTheme.colorScheme.onBackground
+            )
 
             NumberPicker(
                 value = inchValue,
@@ -81,7 +84,10 @@ fun HeightPage(
                 textStyle = TextStyle(color = AppTheme.colorScheme.onBackground)
             )
 
-            Text(text = "in")
+            Text(
+                text = "in",
+                color = AppTheme.colorScheme.onBackground
+            )
         }
 
         Image(

@@ -77,7 +77,8 @@ fun WeightPage(
 
             Text(
                 text = "kgs",
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp),
+                color = AppTheme.colorScheme.onBackground
             )
 
             Spacer(modifier = Modifier.weight(1f))
