@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -63,7 +64,8 @@ fun HeightPage(
                     updateHeight(footValue, inchValue)
                 },
                 range = 0..9,
-                dividersColor = secondaryColor
+                dividersColor = secondaryColor,
+                textStyle = TextStyle(color = AppTheme.colorScheme.onBackground)
             )
 
             Text(text = "ft")
@@ -75,7 +77,8 @@ fun HeightPage(
                     updateHeight(footValue, inchValue)
                 },
                 range = 0..11,
-                dividersColor = secondaryColor
+                dividersColor = secondaryColor,
+                textStyle = TextStyle(color = AppTheme.colorScheme.onBackground)
             )
 
             Text(text = "in")

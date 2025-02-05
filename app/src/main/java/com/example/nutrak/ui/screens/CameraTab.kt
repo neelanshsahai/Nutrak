@@ -3,6 +3,10 @@ package com.example.nutrak.ui.screens
 import android.Manifest
 import android.app.ActionBar.LayoutParams
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
+import android.os.Build
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.LinearLayout
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -28,6 +32,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -41,19 +46,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.decodeBitmap
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.example.nutrak.R
 import com.example.nutrak.ui.common.NutrakButton
 import com.example.nutrak.ui.theme.AppTheme
+import com.example.nutrak.ui.theme.NutrakTheme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
@@ -91,9 +100,12 @@ fun CameraScanner(
 
     val pickMedia = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         if (uri != null) {
-            Log.d("PhotoPicker", "Selected URI: $uri")
-        } else {
-            Log.d("PhotoPicker", "No media selected")
+            val selectedImage = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                ImageDecoder.decodeBitmap(ImageDecoder.createSource(context.contentResolver, uri))
+            } else {
+                MediaStore.Images.Media.getBitmap(context.contentResolver, uri)
+            }
+            processImage(selectedImage)
         }
     }
 
@@ -116,12 +128,12 @@ fun CameraScanner(
                 painter = painterResource(R.drawable.camera_mask),
                 contentDescription = "",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize().padding(paddingValues)
             )
 
             Row(
                 modifier = Modifier
-                    .padding(paddingValues)
+                    .padding(vertical = 64.dp, horizontal = 16.dp)
                     .clip(RoundedCornerShape(12.dp))
                     .fillMaxWidth()
                     .background(Color(0x33FFFFFF))
@@ -210,6 +222,12 @@ fun CameraPermissionDialog(
                     .padding(horizontal = 32.dp)
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
+                colors = CardColors(
+                    containerColor = AppTheme.colorScheme.background,
+                    contentColor = AppTheme.colorScheme.onBackground,
+                    disabledContentColor = Color.Unspecified,
+                    disabledContainerColor = Color.Unspecified,
+                )
             ) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -224,7 +242,8 @@ fun CameraPermissionDialog(
                             .background(AppTheme.colorScheme.divider)
                             .height(64.dp)
                             .width(64.dp)
-                            .padding(16.dp)
+                            .padding(16.dp),
+                        colorFilter = ColorFilter.tint(AppTheme.colorScheme.onBackground)
                     )
 
                     Text(

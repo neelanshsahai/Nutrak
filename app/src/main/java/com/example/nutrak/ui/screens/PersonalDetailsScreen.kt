@@ -1,6 +1,7 @@
 package com.example.nutrak.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.nutrak.ui.common.NutrakButton
 import com.example.nutrak.ui.common.NutrakToolbar
+import com.example.nutrak.ui.theme.AppTheme
 import com.example.nutrak.ui.theme.NutrakTheme
 import com.example.nutrak.ui.theme.secondaryColor
 import com.example.nutrak.ui.viewmodels.PersonalDetailsState
@@ -45,7 +47,6 @@ fun PersonalDetailsScreen(
     )
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PersonalDetailsScreen(
     updateGender: (Int) -> Unit,
@@ -64,13 +65,14 @@ fun PersonalDetailsScreen(
 
     Column(
         modifier = Modifier
+            .background(AppTheme.colorScheme.background)
             .padding(top = 56.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.systemBars),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         LinearProgressIndicator(
-                progress = { 1f * (pagerState.currentPage + 1) / pagerState.pageCount },
+            progress = { 1f * (pagerState.currentPage + 1) / pagerState.pageCount },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),

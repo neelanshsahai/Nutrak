@@ -41,3 +41,7 @@ val LocalAppColorScheme = staticCompositionLocalOf {
         dividerText = Color.Unspecified,
     )
 }
+
+val LocalTextField = staticCompositionLocalOf {
+
+}

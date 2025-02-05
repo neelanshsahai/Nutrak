@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -44,7 +45,7 @@ fun WeightPage(
         )
 
         Text(
-            text = "What is your age?",
+            text = "What is your weight?",
             style = MaterialTheme.typography.titleLarge,
             color = AppTheme.colorScheme.onBackground,
             fontWeight = FontWeight.SemiBold
@@ -70,6 +71,7 @@ fun WeightPage(
                     updateWeight(selectedWeight)
                 },
                 dividersColor = secondaryColor,
+                textStyle = TextStyle(color = AppTheme.colorScheme.onBackground),
                 range = 0..200
             )
 

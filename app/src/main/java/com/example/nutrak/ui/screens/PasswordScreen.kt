@@ -94,6 +94,7 @@ fun PasswordScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(AppTheme.colorScheme.background)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)

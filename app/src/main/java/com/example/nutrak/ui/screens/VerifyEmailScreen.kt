@@ -2,6 +2,7 @@ package com.example.nutrak.ui.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -51,6 +52,7 @@ import com.example.nutrak.ui.common.NutrakToolbar
 import com.example.nutrak.ui.theme.AppTheme
 import com.example.nutrak.ui.theme.NutrakTheme
 import com.example.nutrak.ui.theme.primaryColor
+import com.example.nutrak.ui.theme.secondaryColor
 import com.example.nutrak.ui.viewmodels.AuthUiState
 import com.example.nutrak.ui.viewmodels.AuthenticationViewModel
 
@@ -90,6 +92,7 @@ fun VerifyEmailScreen(
 
     Column(
         modifier = Modifier
+            .background(AppTheme.colorScheme.background)
             .padding(top = 56.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.systemBars),
