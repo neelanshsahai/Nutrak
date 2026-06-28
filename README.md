@@ -34,22 +34,77 @@ The `utils` directory has the following files
 
 Here is how the Nutrak App looks like :
 
-| Splash Screen | Intro Page 1 | Intro Page 2 | Intro Page 3 |
-|:--------:|:--------:|:--------:|:--------:|
-|![Splash Screen](screenshots/Splash%20Screen.jpeg)|![Login Page](screenshots/Intro%20Pager%201.jpeg)|![Password Page](screenshots/Intro%20Pager%202.jpeg)|![OTP Screen](screenshots/Intro%20Pager%203.jpeg)|
+<table width="100%">
+  <tr>
+    <th width="25%">Splash Screen</th>
+    <th width="25%">Intro Page 1</th>
+    <th width="25%">Intro Page 2</th>
+    <th width="25%">Intro Page 3</th>
+  </tr>
+  <tr align="center">
+    <td width="25%"><img src="screenshots/Splash%20Screen.jpeg" alt="Splash Screen"></td>
+    <td width="25%"><img src="screenshots/Intro%20Pager%201.jpeg" alt="Intro Page 1"></td>
+    <td width="25%"><img src="screenshots/Intro%20Pager%202.jpeg" alt="Intro Page 2"></td>
+    <td width="25%"><img src="screenshots/Intro%20Pager%203.jpeg" alt="Intro Page 3"></td>
+  </tr>
+</table>
 
-| SignUp Page | Login Screen | Password Screen | OTP Screen |
-|:--------:|:--------:|:--------:|:--------:|
-|![Splash Screen](screenshots/SignUp%20Screen.jpeg)|![Login Page](screenshots/SignIn%20Screen.jpeg)|![Password Page](screenshots/Password%20Screen.jpeg)|![OTP Screen](screenshots/OTP%20Screem.jpeg)|
+<table width="100%">
+  <tr>
+    <th width="25%">SignUp Page</th>
+    <th width="25%">Login Screen</th>
+    <th width="25%">Password Screen</th>
+    <th width="25%">OTP Screen</th>
+  </tr>
+  <tr align="center">
+    <td width="25%"><img src="screenshots/SignUp%20Screen.jpeg" alt="SignUp Screen"></td>
+    <td width="25%"><img src="screenshots/SignIn%20Screen.jpeg" alt="Login Page"></td>
+    <td width="25%"><img src="screenshots/Password%20Screen.jpeg" alt="Password Page"></td>
+    <td width="25%"><img src="screenshots/OTP%20Screem.jpeg" alt="OTP Screen"></td>
+  </tr>
+</table>
 
-| Welcome Screen | Gender Page | Age Page | Height Page |
-|:--------:|:--------:|:--------:|:--------:|
-|![Splash Screen](screenshots/Welcome%20Screen.jpeg)|![Login Page](screenshots/Gender%20Page.jpeg)|![Password Page](screenshots/Age%20Page.jpeg)|![OTP Screen](screenshots/Height%20Page.jpeg)|
+<table width="100%">
+  <tr>
+    <th width="25%">Welcome Screen</th>
+    <th width="25%">Gender Page</th>
+    <th width="25%">Age Page</th>
+    <th width="25%">Height Page</th>
+  </tr>
+  <tr align="center">
+    <td width="25%"><img src="screenshots/Welcome%20Screen.jpeg" alt="Welcome Screen"></td>
+    <td width="25%"><img src="screenshots/Gender%20Page.jpeg" alt="Gender Page"></td>
+    <td width="25%"><img src="screenshots/Age%20Page.jpeg" alt="Age Page"></td>
+    <td width="25%"><img src="screenshots/Height%20Page.jpeg" alt="Height Page"></td>
+  </tr>
+</table>
 
-| Weight Page | Goal Page | Preference Page | Dashboard's Home Tab |
-|:--------:|:--------:|:--------:|:--------:|
-|![Splash Screen](screenshots/Weight%20Page.jpeg)|![Login Page](screenshots/Goal%20Page.jpeg)|![Password Page](screenshots/Preference%20Page.jpeg)|![OTP Screen](screenshots/Dashboard%20Home%20Tab.jpeg)|
+<table width="100%">
+  <tr>
+    <th width="25%">Weight Page</th>
+    <th width="25%">Goal Page</th>
+    <th width="25%">Preference Page</th>
+    <th width="25%">Dashboard's Home Tab</th>
+  </tr>
+  <tr align="center">
+    <td width="25%"><img src="screenshots/Weight%20Page.jpeg" alt="Weight Page"></td>
+    <td width="25%"><img src="screenshots/Goal%20Page.jpeg" alt="Goal Page"></td>
+    <td width="25%"><img src="screenshots/Preference%20Page.jpeg" alt="Preference Page"></td>
+    <td width="25%"><img src="screenshots/Dashboard%20Home%20Tab.jpeg" alt="Dashboard Home Tab"></td>
+  </tr>
+</table>
 
-| Dashboard's Streaks Tab | Scanner Tab | Loader Screen | Nutrition Results Page |
-|:--------:|:--------:|:--------:|:--------:|
-|![Splash Screen](screenshots/Dashboard%20Streaks%20Tab.jpeg)|![Login Page](screenshots/Dashboard%20Camera%20Tab.jpeg)|![Password Page](screenshots/Loader%20Screen.jpeg)|![OTP Screen](screenshots/Nutrition%20Result.jpeg)|
+<table width="100%">
+  <tr>
+    <th width="25%">Dashboard's Streaks Tab</th>
+    <th width="25%">Scanner Tab</th>
+    <th width="25%">Loader Screen</th>
+    <th width="25%">Nutrition Results Page</th>
+  </tr>
+  <tr align="center">
+    <td width="25%"><img src="screenshots/Dashboard%20Streaks%20Tab.jpeg" alt="Dashboard Streaks Tab"></td>
+    <td width="25%"><img src="screenshots/Dashboard%20Camera%20Tab.jpeg" alt="Scanner Tab"></td>
+    <td width="25%"><img src="screenshots/Loader%20Screen.jpeg" alt="Loader Screen"></td>
+    <td width="25%"><img src="screenshots/Nutrition%20Result.jpeg" alt="Nutrition Results Page"></td>
+  </tr>
+</table>
